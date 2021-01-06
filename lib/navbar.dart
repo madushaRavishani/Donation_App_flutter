@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:notifications/home.dart';
 import 'package:notifications/comment.dart';
 
+import 'HelpHands.dart';
+
 class NavDrawer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -35,7 +37,9 @@ class NavDrawer extends StatelessWidget {
           ListTile(
             leading: Icon(Icons.settings),
             title: Text('Settings'),
-            onTap: () => {Navigator.of(context).pop()},
+            onTap: () => {
+              Navigator.push(context, new MaterialPageRoute(builder: (context)=> new HelpHands()))
+    },
           ),
           ListTile(
             leading: Icon(Icons.border_color),
