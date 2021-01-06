@@ -92,9 +92,7 @@ class MyCustomFormState extends State<MyCustomForm> {
               alignment: Alignment.center,
               padding: const EdgeInsets.only(bottom: 5.0),
               child: new RaisedButton(
-                onPressed: (){
-                  createData;
-                  showAlertDialog(context);},
+                onPressed: createData,
                 child: Text('Submit'),
               )),
           StreamBuilder<QuerySnapshot>(
