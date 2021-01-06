@@ -16,7 +16,7 @@ class Details{
   }
 
   Details.fromSnapshot(DocumentSnapshot snapshot)
-  :this.fromMap(snapshot.data, documentReference:snapshot.reference);
+  :this.fromMap(snapshot.data(), documentReference:snapshot.reference);
 
   toJason(){
     return{'name':name, 'address':address};
