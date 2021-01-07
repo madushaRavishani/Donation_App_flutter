@@ -62,7 +62,7 @@ class _HelpHandsState extends State<HelpHands> {
     var iOS = new IOSNotificationDetails();
     var platform = new NotificationDetails(android, iOS);
     await flutterLocalNotificationsPlugin.show(
-        0, "Donation App", "You have  successfully", platform);
+        0, "Donation App", "You have updated details successfully", platform);
   }
 
 
