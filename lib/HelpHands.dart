@@ -21,6 +21,51 @@ class _HelpHandsState extends State<HelpHands> {
   FirebaseMessaging _firebaseMessaging = new FirebaseMessaging();
   FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin = new FlutterLocalNotificationsPlugin();
 
+  @override
+  void initState() {
+    super.initState();
+
+    var android = new AndroidInitializationSettings('mipmap/ic_launcher');
+    var ios = new IOSInitializationSettings();
+    var platform = new InitializationSettings(android, ios);
+    flutterLocalNotificationsPlugin.initialize(platform);
+
+    _firebaseMessaging.configure(
+      onMessage: (Map<String, dynamic> message){
+        showNotification(message);
+        print('on message $message');
+      },
+      onResume: (Map<String, dynamic> message){
+        print('on resume $message');
+      },
+      onLaunch: (Map<String, dynamic> message){
+        print('on launch $message');
+      },
+    );
+    _firebaseMessaging.requestNotificationPermissions(const IosNotificationSettings(sound: true, alert: true, badge: true));
+    _firebaseMessaging.onIosSettingsRegistered
+        .listen((IosNotificationSettings setting) {
+      print('IOS Setting Registed');
+    });
+    _firebaseMessaging.getToken().then((token){
+      print(token);
+    });
+
+  }
+
+  showNotification(Map<String, dynamic> msg) async {
+    var android = new AndroidNotificationDetails(
+      'message',
+      "Title",
+      "Body",
+    );
+    var iOS = new IOSNotificationDetails();
+    var platform = new NotificationDetails(android, iOS);
+    await flutterLocalNotificationsPlugin.show(
+        0, "Donation App", "You have  successfully", platform);
+  }
+
+
   TextEditingController nameController = TextEditingController();
   TextEditingController addressController = TextEditingController();
 

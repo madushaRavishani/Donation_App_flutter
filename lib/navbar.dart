@@ -25,7 +25,9 @@ class NavDrawer extends StatelessWidget {
           ListTile(
             leading: Icon(Icons.input),
             title: Text('Welcome'),
-            onTap: () => {},
+            onTap: () => {
+              Navigator.push(context, new MaterialPageRoute(builder: (context)=> new HelpHands()))
+            },
           ),
           ListTile(
             leading: Icon(Icons.verified_user),
@@ -37,9 +39,7 @@ class NavDrawer extends StatelessWidget {
           ListTile(
             leading: Icon(Icons.settings),
             title: Text('Settings'),
-            onTap: () => {
-              Navigator.push(context, new MaterialPageRoute(builder: (context)=> new HelpHands()))
-    },
+            onTap: () => { },
           ),
           ListTile(
             leading: Icon(Icons.border_color),
