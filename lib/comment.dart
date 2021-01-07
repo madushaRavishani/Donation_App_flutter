@@ -34,22 +34,37 @@ class MyCustomFormState extends State<MyCustomForm> {
 
   Card buildItem(DocumentSnapshot doc) {
     return Card(
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(5.0),
-      ),
-      color: Colors.pink[50],
-      margin: const EdgeInsets.only(left: 20.0, right: 20.0,top: 5.0, bottom: 5.0),
-      child: Column(
-        children: <Widget>[
-          ListTile(
-            leading: const Icon(Icons.account_circle, size: 50),
-            title: Text('${doc.data()['name']}'),
-            subtitle: Text('${doc.data()['comment']}'),
+        margin: EdgeInsets.symmetric(vertical : 19, horizontal: 1),
+          child: Container(
+            decoration: BoxDecoration(
+              border: Border.all(color: Colors.black),
+              borderRadius: BorderRadius.circular(4),
+             ),
+          child: SingleChildScrollView(
+            child: ListTile(
+              title: Column(
+                children: <Widget>[
+                  Row(
+                    children:<Widget> [
+                       Icon(Icons.account_circle,color: Colors.yellow,),
+                        Text('${doc.data()['name']}'),
+                     ],
+                  ),
+                  Divider(),
+                  Row(
+                    children: <Widget>[
+                      Icon(Icons.message,color: Colors.red,),
+                      Text('${doc.data()['comment']}'),
+                     ],
+                  )
+            ],
+                 ),
           ),
-        ],
-      ),
-    );
-  }
+          ),
+        ),
+         );
+        }
+
 
   @override
   Widget build(BuildContext context) {
@@ -124,28 +139,16 @@ class MyCustomFormState extends State<MyCustomForm> {
     print(snapshot.data()['name']);
   }
 
-  showAlertDialog(BuildContext context) {
-    // set up the button
-    Widget okButton = FlatButton(
-      child: Text("OK"),
-      onPressed: () {},
-    );
+  Widget buildBody(BuildContext context){
 
-    // set up the AlertDialog
-    AlertDialog alert = AlertDialog(
-      title: Text("My title"),
-      content: Text("This is my message."),
-      actions: [
-        okButton,
-      ],
-    );
-
-    // show the dialog
-    showDialog(
-      context: context,
-    // barrierDismissible: false,
-      builder: (BuildContext context) {
-        return alert;
+    return StreamBuilder<QuerySnapshot>(
+      stream:db.collection('comments').snapshots(),
+      builder: (context,snapshot){
+        if (snapshot.hasData) {
+          return Column(children: snapshot.data.documents.map((doc) => buildItem(doc)).toList());
+        } else {
+          return Container();
+        }
       },
     );
   }

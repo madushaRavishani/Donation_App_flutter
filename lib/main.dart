@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Donation APP',
       theme: ThemeData(
-        primaryColor: Color(0xFF6F35A5),
+        primaryColor: Colors.lightBlue,
         scaffoldBackgroundColor: Colors.white,
       ),
       home: MyHomePage(),

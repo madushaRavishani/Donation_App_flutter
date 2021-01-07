@@ -23,8 +23,8 @@ class MyApp extends StatelessWidget {
   }
 }
 
-final Color yellow = Color(0xfffbc31b);
-final Color orange = Color(0xfffb6900);
+final Color yellow =Colors.lightBlue;
+final Color orange =Colors.blue;
 
 class UploadingImageToFirebaseStorage extends StatefulWidget {
   @override
@@ -71,6 +71,7 @@ class _UploadingImageToFirebaseStorageState
                     bottomLeft: Radius.circular(50.0),
                     bottomRight: Radius.circular(50.0)),
                 gradient: LinearGradient(
+
                     colors: [orange, yellow],
                     begin: Alignment.topLeft,
                     end: Alignment.bottomRight)),

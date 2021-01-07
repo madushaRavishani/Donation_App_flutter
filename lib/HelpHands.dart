@@ -10,7 +10,7 @@ class HelpHands extends StatefulWidget {
 
   HelpHands() : super();
 
-  final String appTitle = "Details DB";
+  final String appTitle = "Your Details";
 
   @override
   _HelpHandsState createState() => _HelpHandsState();
@@ -64,7 +64,6 @@ class _HelpHandsState extends State<HelpHands> {
     await flutterLocalNotificationsPlugin.show(
         0, "Donation App", "You have updated details successfully", platform);
   }
-
 
   TextEditingController nameController = TextEditingController();
   TextEditingController addressController = TextEditingController();

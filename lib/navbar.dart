@@ -19,7 +19,7 @@ class NavDrawer extends StatelessWidget {
               style: TextStyle(color: Colors.white, fontSize: 25),
             ),
             decoration: BoxDecoration(
-                color: Colors.green,
+                color: Colors.lightBlue,
                 image: DecorationImage(
                     fit: BoxFit.fill,
                     image: AssetImage('assets/images/cover.jpg'))),
@@ -32,14 +32,7 @@ class NavDrawer extends StatelessWidget {
             },
           ),
           ListTile(
-            leading: Icon(Icons.verified_user),
-            title: Text('Profile'),
-            onTap: () => {
-              Navigator.push(context, new MaterialPageRoute(builder: (context)=> new FirestoreCRUDPage()))
-            },
-          ),
-          ListTile(
-            leading: Icon(Icons.settings),
+            leading: Icon(Icons.account_circle),
             title: Text('Login'),
             onTap: () => {
               Navigator.push(
@@ -67,9 +60,11 @@ class NavDrawer extends StatelessWidget {
             },
           ),
           ListTile(
-            leading: Icon(Icons.exit_to_app),
-            title: Text('Logout'),
-            onTap: () => {Navigator.of(context).pop()},
+            leading: Icon(Icons.border_color),
+            title: Text('Details'),
+            onTap: () => {
+              Navigator.push(context, new MaterialPageRoute(builder: (context)=> new HelpHands()))
+            },
           ),
         ],
       ),
