@@ -3,6 +3,8 @@ import 'package:notifications/home.dart';
 import 'package:notifications/comment.dart';
 
 import 'HelpHands.dart';
+import 'image.dart';
+import 'login.dart';
 
 class NavDrawer extends StatelessWidget {
   @override
@@ -38,8 +40,24 @@ class NavDrawer extends StatelessWidget {
           ),
           ListTile(
             leading: Icon(Icons.settings),
-            title: Text('Settings'),
-            onTap: () => { },
+            title: Text('Login'),
+            onTap: () => {
+              Navigator.push(
+                  context,
+                  new MaterialPageRoute(
+                      builder: (context) => new MyLoginPage()))
+            },
+          ),
+          ListTile(
+            leading: Icon(Icons.settings),
+            title: Text('Our Services'),
+            onTap: () => {
+              Navigator.push(
+                  context,
+                  new MaterialPageRoute(
+                      builder: (context) =>
+                      new UploadingImageToFirebaseStorage()))
+            },
           ),
           ListTile(
             leading: Icon(Icons.border_color),
