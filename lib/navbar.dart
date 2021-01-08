@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:notifications/home.dart';
+//import 'package:notifications/home.dart';
 import 'package:notifications/comment.dart';
-
 import 'HelpHands.dart';
 import 'image.dart';
 import 'login.dart';
@@ -29,16 +28,6 @@ class NavDrawer extends StatelessWidget {
             title: Text('Welcome'),
             onTap: () => {
               Navigator.push(context, new MaterialPageRoute(builder: (context)=> new HelpHands()))
-            },
-          ),
-          ListTile(
-            leading: Icon(Icons.account_circle),
-            title: Text('Login'),
-            onTap: () => {
-              Navigator.push(
-                  context,
-                  new MaterialPageRoute(
-                      builder: (context) => new MyLoginPage()))
             },
           ),
           ListTile(
@@ -71,3 +60,4 @@ class NavDrawer extends StatelessWidget {
     );
   }
 }
+

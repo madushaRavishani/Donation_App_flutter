@@ -34,15 +34,18 @@ class MyCustomFormState extends State<MyCustomForm> {
 
   Card buildItem(DocumentSnapshot doc) {
     return Card(
-        margin: EdgeInsets.symmetric(vertical : 19, horizontal: 1),
-          child: Container(
+      margin: EdgeInsets.symmetric(vertical : 3, horizontal: 10),
+        child: Container(
             decoration: BoxDecoration(
               border: Border.all(color: Colors.black),
               borderRadius: BorderRadius.circular(4),
              ),
           child: SingleChildScrollView(
+
             child: ListTile(
+
               title: Column(
+
                 children: <Widget>[
                   Row(
                     children:<Widget> [
@@ -71,8 +74,10 @@ class MyCustomFormState extends State<MyCustomForm> {
     // Build a Form widget using the _formKey created above.
     return Form(
       key: _formKey,
+      child: SingleChildScrollView(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
+
         children: <Widget>[
           TextFormField(
             decoration: InputDecoration(
@@ -116,11 +121,14 @@ class MyCustomFormState extends State<MyCustomForm> {
               if (snapshot.hasData) {
                 return Column(children: snapshot.data.documents.map((doc) => buildItem(doc)).toList());
               } else {
-                return SizedBox();
+                return SizedBox(
+
+                );
               }
             },
           ),
         ],
+      ),
       ),
     );
   }

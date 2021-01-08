@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:modal_progress_hud/modal_progress_hud.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:notifications/HelpHands.dart';
+
+import 'donorView.dart';
 
 void main() => runApp(MyApp());
 
@@ -93,6 +96,7 @@ class _MyLoginPageState extends State<MyLoginPage> {
                           email: email, password: password);
                       print(newUser.toString());
                       if (newUser != null) {
+                        Navigator.push(context, new MaterialPageRoute(builder: (context)=> new DonorView()));
                         Fluttertoast.showToast(
                             msg: "Login Successfull",
                             toastLength: Toast.LENGTH_SHORT,
