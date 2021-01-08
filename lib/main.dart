@@ -5,7 +5,9 @@ import 'login.dart';
 import 'package:notifications/navbar.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:wc_form_validators/wc_form_validators.dart';
-//import 'package:email_validator/email_validator.dart';
+import 'package:notifications/load.dart';
+import 'package:email_validator/email_validator.dart';
+
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();

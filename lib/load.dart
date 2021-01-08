@@ -1,4 +1,5 @@
 import 'dart:io';
+import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:modal_progress_hud/modal_progress_hud.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -6,9 +7,10 @@ import 'package:fluttertoast/fluttertoast.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:path/path.dart';
-//import 'package:flutter_widgets/plugins/firetop/storage/fire_storage_service.dart';
+import 'package:notifications/load/fire_storage_service.dart';
+import 'package:notifications/navbar.dart';
 
-//void main() => runApp(MyApp());
+void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
@@ -24,10 +26,10 @@ class MyApp extends StatelessWidget {
   }
 }
 
-final Color yellow = Color(0xfffbc31b);
-final Color orange = Color(0xfffb6900);
-final String image1 = "1.jpg";
-final String image2 = "2.jpg";
+final Color yellow = Colors.lightBlue;
+final Color orange = Colors.blue;
+final String image1 = "images/image1.jpeg";
+final String image2 = "images/image2.jpeg";
 
 String image = image1;
 
@@ -41,6 +43,7 @@ class _LoadFirbaseStorageImageState extends State<LoadFirbaseStorageImage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: NavDrawer(),
       body: Stack(
         children: <Widget>[
           Container(
@@ -62,10 +65,10 @@ class _LoadFirbaseStorageImageState extends State<LoadFirbaseStorageImage> {
                   padding: const EdgeInsets.all(8.0),
                   child: Center(
                     child: Text(
-                      "Loading images",
+                      "DONATION APP",
                       style: TextStyle(
                           color: Colors.white,
-                          fontSize: 28,
+                          fontSize: 32,
                           fontStyle: FontStyle.italic),
                     ),
                   ),
@@ -87,9 +90,9 @@ class _LoadFirbaseStorageImageState extends State<LoadFirbaseStorageImage> {
                                   ConnectionState.done)
                                 return Container(
                                   height:
-                                  MediaQuery.of(context).size.height / 1.25,
+                                      MediaQuery.of(context).size.height / 1.25,
                                   width:
-                                  MediaQuery.of(context).size.width / 1.25,
+                                      MediaQuery.of(context).size.width / 1.25,
                                   child: snapshot.data,
                                 );
 
@@ -125,7 +128,7 @@ class _LoadFirbaseStorageImageState extends State<LoadFirbaseStorageImage> {
         children: <Widget>[
           Container(
             padding:
-            const EdgeInsets.symmetric(vertical: 5.0, horizontal: 16.0),
+                const EdgeInsets.symmetric(vertical: 5.0, horizontal: 16.0),
             margin: const EdgeInsets.only(
                 top: 30, left: 20.0, right: 20.0, bottom: 20.0),
             decoration: BoxDecoration(

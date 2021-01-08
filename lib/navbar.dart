@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:notifications/comment.dart';
 import 'HelpHands.dart';
 import 'image.dart';
+import 'load.dart';
 import 'login.dart';
 
 class NavDrawer extends StatelessWidget {
@@ -27,25 +28,7 @@ class NavDrawer extends StatelessWidget {
             leading: Icon(Icons.input),
             title: Text('Welcome'),
             onTap: () => {
-              Navigator.push(context, new MaterialPageRoute(builder: (context)=> new HelpHands()))
-            },
-          ),
-          ListTile(
-            leading: Icon(Icons.settings),
-            title: Text('Our Services'),
-            onTap: () => {
-              Navigator.push(
-                  context,
-                  new MaterialPageRoute(
-                      builder: (context) =>
-                      new UploadingImageToFirebaseStorage()))
-            },
-          ),
-          ListTile(
-            leading: Icon(Icons.border_color),
-            title: Text('Feedback'),
-            onTap: () => {
-              Navigator.push(context, new MaterialPageRoute(builder: (context)=> new Comments()))
+              Navigator.push(context, new MaterialPageRoute(builder: (context)=> new LoadFirbaseStorageImage()))
             },
           ),
           ListTile(
@@ -55,6 +38,21 @@ class NavDrawer extends StatelessWidget {
               Navigator.push(context, new MaterialPageRoute(builder: (context)=> new HelpHands()))
             },
           ),
+          ListTile(
+            leading: Icon(Icons.settings),
+            title: Text('Our Services'),
+            onTap: () => {
+              Navigator.push(context, new MaterialPageRoute(builder: (context) => new UploadingImageToFirebaseStorage()))
+            },
+          ),
+          ListTile(
+            leading: Icon(Icons.border_color),
+            title: Text('Feedback'),
+            onTap: () => {
+              Navigator.push(context, new MaterialPageRoute(builder: (context)=> new Comments()))
+            },
+          ),
+
         ],
       ),
     );

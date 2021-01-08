@@ -170,15 +170,6 @@ class _DonorViewState extends State<DonorView> {
                 )
               ],
             ),
-            trailing: IconButton(
-              icon: Icon(Icons.delete,color: Colors.red,),
-              onPressed: (){
-                deleteDetails(details);
-              },
-            ),
-            onTap: (){
-              setUpdateUI(details);
-            },
           ),
         ),
       ),
@@ -203,7 +194,6 @@ class _DonorViewState extends State<DonorView> {
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomPadding: false,
-
       appBar: AppBar(
         title: Text(widget.appTitle),
         actions: <Widget>[
